@@ -1,0 +1,1 @@
+{"joao":10, "marcos": 100, "pindaiba": 15, "rolandinho": 50, "kerl":30, "ken":300, "julia":89, "robert":450, "marx": 700, "Anna": 1000}
