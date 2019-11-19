@@ -43,36 +43,28 @@ while run:
     # gameplay
     # if game:
     #     make_screen_game(screen)
-    
+
     # checagem dos eventos acima
     for event in pygame.event.get():
         run = controls.close(event, run)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_BACKSPACE:
                 decision = "null"
-                ranking = False
+                ranking = game = cred = False
                 init = True
-                cred = False
-                game = False 
-    
+     
     if decision == 'rank':
         ranking = True
-        init = False
-        cred = False
-        game = False
-    
+        init = cred = game = False
+
     elif decision == 'credits':
-        ranking = False
-        init = False
+        ranking = game = init = False
         cred = True
-        game = False
 
     elif decision == 'start':
-        ranking = False
-        init = False
-        cred = False
+        ranking = init = cred = False
         game = True
-    
+
     elif decision == 'exit':
         pygame.quit()
 
@@ -81,5 +73,3 @@ while run:
     pygame.display.flip()
     clock.tick(30)
     pygame.display.update()
-
- 

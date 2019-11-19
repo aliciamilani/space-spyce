@@ -31,19 +31,6 @@ def write_credits(screen, text_tam, text_font, cred_arq, text_color):
         y_init += text.get_height() + 10
 
 
-# def write_credits(screen, text_tam, text_font, cred_arq, text_color):
-#     list_texts = []
-#     arq = open(cred_arq, 'r')
-#     for line in arq:
-#         list_texts.append(line)
-#     arq.close()
-#     x_init = 250
-#     y_init = 0
-#     for text in list_texts[::-1]:
-#         screen.blit(text, (x_init, y_init))
-#         y_init += text.get_height() + 10
-
-
 def make_screen_credits(
     screen,
     text_font="ubuntumono", 
