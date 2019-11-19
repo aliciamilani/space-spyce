@@ -1,5 +1,6 @@
 import pygame
 from rank_screen import *
+from main_menu import *
 
 pygame.init()
 
@@ -12,6 +13,6 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
     
-    make_screen_rank(screen)
-    
+    #make_screen_rank(screen)
+    main_menu()
     pygame.display.flip()
