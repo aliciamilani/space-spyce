@@ -1,5 +1,4 @@
 import pygame
-import controls
 from pygame.locals import *
 pygame.init()
 

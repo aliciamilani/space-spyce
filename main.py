@@ -2,8 +2,8 @@ import pygame
 import menu
 import rank
 from enemy_2 import update_ovni, make_ovni
-import controls
 import credits
+import gameplay
 
 global screen_width
 global screen_height
@@ -41,12 +41,13 @@ while run:
         credits.make_screen_credits(screen)
 
     # gameplay
-    # if game:
-    #     make_screen_game(screen)
+    if game:
+        gameplay.make_screen_game(screen)
 
     # checagem dos eventos acima
     for event in pygame.event.get():
-        run = controls.close(event, run)
+        if event.type == pygame.QUIT:
+            run = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_BACKSPACE:
                 decision = "null"
