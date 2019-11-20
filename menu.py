@@ -10,7 +10,6 @@ blue = (0, 0, 255)
 white = (255, 255, 255)
 clock = pygame.time.Clock()
 
-
 def format(message, textFont, textSize, textColor):
     newFont = pygame.font.Font(textFont, textSize)
     newText = newFont.render(message, 0, textColor)
@@ -18,50 +17,46 @@ def format(message, textFont, textSize, textColor):
 
 
 def make_screen_menu(screen, screen_width):
+    list_menu = ['start', 'rank', 'credits', 'exit']
     menu = True
-    selected = "start"
+    selected = 0
 
     while menu:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_1:
-                    selected = "start"
-                if event.key == pygame.K_2:
-                    selected = "rank"
-                if event.key == pygame.K_3:
-                    selected = "credits"
-                if event.key == pygame.K_4:
-                    selected = "exit"
+                if event.key == pygame.K_UP:
+                    selected -= 1
+                if event.key == pygame.K_DOWN:
+                    selected += 1
                 if event.key == pygame.K_RETURN:
-                    return selected
- 
+                    return list_menu[selected]
+
+        selected %= 4
+
         bg = pygame.image.load('content/nebula.jpg')
         screen.blit(bg, (0,0))
         title = format("JOGO SEM NOME", font, 90, red)
+
+        start = format("START", font, 75, white)
+        rank = format("RANK", font, 75, white)
+        credit = format ("CREDITS", font, 75, white)
+        quitt = format("EXIT", font, 75, white)
         
-        if selected == "start":
+        if selected == 0:
             start = format("START", font, 75, red)
-        else:
-            start = format("START", font, 75, white)
 
-        if selected == "rank":
+        elif selected == 1:
             rank = format("RANK", font, 75, red)
-        else:
-            rank = format("RANK", font, 75, white)
 
-        if selected == "credits":
+        elif selected == 2:
             credit = format("CREDITS", font, 75, red)
-        else:
-            credit = format ("CREDITS", font, 75, white)
  
-        if selected == "exit":
+        elif selected == 3:
             quitt = format("EXIT", font, 75, red)
-        else:
-            quitt = format("EXIT", font, 75, white)
 
-        disc = format("utilize os números de 1 a 4 para escolher a sua opção", font, 14, white)
+        disc = format("Use as setas para movimentar", font, 14, white)
         
         disc_col = disc.get_rect()
         title_col = title.get_rect()

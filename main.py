@@ -1,5 +1,5 @@
 import pygame
-import menu_2
+import menu
 import rank
 import credits
 import gameplay
@@ -27,7 +27,7 @@ while run:
 
     # tela inicial
     if init:
-        decision = menu_2.make_screen_menu(screen, screen_width)
+        decision = menu.make_screen_menu(screen, screen_width)
     
     # tela de rank
     if ranking:
