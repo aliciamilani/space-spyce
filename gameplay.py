@@ -1,6 +1,6 @@
 import pygame
 import random
-import player
+import support
 import enemy_2
 pygame.init()
 
@@ -12,12 +12,17 @@ def make_screen_game(screen):
     background = "nebula.jpg"
     pygame.display.set_caption("Gameplay")
     bg = pygame.image.load("content/{}".format(background))
+
     ovnis = []
     spawn_chance = 0.04  # Chance de spawnar um ET
+
+    shoot = []
+
     game = True
+
     while game:
         screen.blit(bg, (0, 0))
-        player.draw_nave(screen, x_nave, y_nave)
+        support.draw_nave(screen, x_nave, y_nave)
 
         if(random.random() < spawn_chance):
             ovnis.append(enemy_2.make_ovni(3))
@@ -35,6 +40,9 @@ def make_screen_game(screen):
                     x_nave -= 15
                 if event.key == pygame.K_RIGHT:
                     x_nave += 15
+                if event.key == pygame.K_SPACE:
+                    shoot.append(support.make_shot(3, x_nave, y_nave))
 
+        support.update_shot(screen, shoot)
         pygame.display.flip()
         pygame.display.update()
