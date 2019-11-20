@@ -10,9 +10,12 @@ def make_screen_game(screen):
     y_nave = 200
     ovni_sprite = pygame.image.load("content/nave_teste.png")
     shot_ovni_sprite = pygame.image.load("content/bullet.png")
-    shot_ovni_sprite = pygame.transform.rotate(shot_ovni_sprite, -180)
+    x_bg = 0
+    x_bg_2 = 0
+    # shot_ovni_sprite = pygame.transform.rotate(shot_ovni_sprite, -180)
     background = "nebula.jpg"
-    pygame.display.set_caption("Gameplay")
+    # bg_2 = pygame.image.load("content/stars.png")
+    # pygame.display.set_caption("Gameplay")
     bg = pygame.image.load("content/{}".format(background))
 
     ovnis = []
@@ -24,7 +27,7 @@ def make_screen_game(screen):
     game = True
 
     while game:
-        screen.blit(bg, (0, 0))
+        x_bg, x_bg_2 = support.bg_parallax(screen, bg, x_bg, x_bg_2,1994,2, -300)
         support.draw_nave(screen, x_nave, y_nave)
 
         if(random.random() < spawn_chance):

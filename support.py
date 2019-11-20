@@ -33,3 +33,16 @@ def update_shot(screen, shoot_list):
 
         else:
             shoot_list.remove(shoot)
+
+
+def bg_parallax(screen, bg, x_bg, x_bg_2, bg_width, speed, y):
+    if(x_bg <= 0):
+        x_bg_2 = bg_width - abs(x_bg)
+    else:
+        x_bg_2 -= speed
+    screen.blit(bg, (x_bg, y))
+    screen.blit(bg, (x_bg_2, y))
+    if(x_bg <= -bg_width):
+        x_bg = bg_width
+    x_bg -= speed
+    return x_bg, x_bg_2
