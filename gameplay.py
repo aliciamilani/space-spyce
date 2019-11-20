@@ -1,5 +1,7 @@
 import pygame
 import player
+from enemy_2 import update_ovni, make_ovni
+
 pygame.init()
 
 
@@ -22,6 +24,12 @@ def make_screen_game(screen):
                     y_nave -= 10
                 if event.key == pygame.K_DOWN:
                     y_nave += 10
+
+        ovnis = []
+        ovnis.append(make_ovni())
+        ovni_sprite = pygame.image.load("content/nave_teste.png")
+
+        update_ovni(screen, ovni_sprite, ovnis)
 
         pygame.display.flip()
         pygame.display.update()
