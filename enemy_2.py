@@ -15,10 +15,12 @@ def update_ovni(screen, sprite, ovni_list):
     for ovni in ovni_list:
         if ovni['vec_init'].x < 10:
             ovni['up'] = False
+
         if(ovni['up']):
             ovni['vec_init'] += ovni['vec_mov']
             if(ovni['vec_init'].y < 10 or ovni['vec_init'].y > 450):
                 ovni['vec_mov'].y *= -1
             screen.blit(sprite, ovni['vec_init'])
+
         else:
             ovni_list.remove(ovni)
