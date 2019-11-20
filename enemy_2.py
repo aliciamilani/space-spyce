@@ -2,11 +2,11 @@ import pygame
 from random import randint, choice, random
 
 
-def make_ovni(speed = 1):
+def make_ovni(speed=1):
     vec = pygame.math.Vector2
     ovni_info = {}
     ovni_info['vec_init'] = vec(1020, randint(0, 500))
-    ovni_info['vec_mov'] = vec(((-1)-speed), randint(-2,2)-(speed*random()))
+    ovni_info['vec_mov'] = vec(((-1)-speed), randint(-2, 2)-(speed*random()))
     ovni_info['up'] = True
     return ovni_info
 

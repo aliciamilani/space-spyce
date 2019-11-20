@@ -13,8 +13,6 @@ screen_width = 1000
 screen_height = 500
 screen = pygame.display.set_mode((screen_width, screen_height))
 
-
-
 # declaração de variaveis de controle
 run = True  # execução do jogo
 init = True  # tela inicial
@@ -28,7 +26,7 @@ while run:
     # tela inicial
     if init:
         decision = menu.make_screen_menu(screen, screen_width)
-    
+
     # tela de rank
     if ranking:
         rank.make_screen_rank(screen)
@@ -50,7 +48,7 @@ while run:
                 decision = "null"
                 ranking = game = cred = False
                 init = True
-     
+
     if decision == 'rank':
         ranking = True
         init = cred = game = False
