@@ -17,6 +17,7 @@ def format(message, textFont, textSize, textColor):
 
 
 def make_screen_menu(screen, screen_width):
+    list_menu = ['start', 'rank', 'credits', 'exit']
     menu = True
     selected = 0
 
@@ -30,7 +31,7 @@ def make_screen_menu(screen, screen_width):
                 if event.key == pygame.K_DOWN:
                     selected += 1
                 if event.key == pygame.K_RETURN:
-                    return selected
+                    return list_menu[selected]
 
         selected %= 4
 
