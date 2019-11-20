@@ -13,6 +13,8 @@ def make_ovni(speed = 1):
 
 def update_ovni(screen, sprite, ovni_list):
     for ovni in ovni_list:
+        if ovni['vec_init'].x < 10:
+            ovni['up'] = False
         if(ovni['up']):
             ovni['vec_init'] += ovni['vec_mov']
             if(ovni['vec_init'].y < 100 or ovni['vec_init'].y > 450):
