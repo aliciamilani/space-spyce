@@ -30,6 +30,12 @@ def make_screen_game(screen):
                 if event.key == pygame.K_DOWN:
                     y_nave += 10
 
+        ovnis = []
+        ovnis.append(make_ovni())
+        ovni_sprite = pygame.image.load("content/nave_teste.png")
+
+        update_ovni(screen, ovni_sprite, ovnis)
+
         pygame.display.flip()
         pygame.display.update()
         

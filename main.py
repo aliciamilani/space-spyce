@@ -1,7 +1,6 @@
 import pygame
 import menu
 import rank
-from enemy_2 import update_ovni, make_ovni
 import credits
 import gameplay
 
@@ -14,9 +13,7 @@ screen_width = 1000
 screen_height = 500
 screen = pygame.display.set_mode((screen_width, screen_height))
 
-# ovnis = []
-# ovnis.append(make_ovni())
-# ovni_sprite = pygame.image.load("content/nave_teste.png")
+
 
 # declaração de variaveis de controle
 run = True  # execução do jogo
@@ -68,8 +65,6 @@ while run:
 
     elif decision == 'exit':
         pygame.quit()
-
-    # update_ovni(screen, ovni_sprite, ovnis)
 
     pygame.display.flip()
     clock.tick(30)
