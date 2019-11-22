@@ -10,6 +10,7 @@ def make_ovni(speed=1):
     ovni_info['up'] = True
     return ovni_info
 
+
 def make_shot(begin, end):
     vec = pygame.math.Vector2
     shot_info = {}
@@ -17,6 +18,7 @@ def make_shot(begin, end):
     shot_info['vec_mov'] = vec.normalize((end - begin))
     shot_info['up'] = True
     return shot_info
+
 
 def updade_shot(screen, sprite, shot_list, speed):
     for shot in shot_list:
@@ -27,6 +29,7 @@ def updade_shot(screen, sprite, shot_list, speed):
             screen.blit(sprite, shot['vec_init'])
         else:
             shot_list.remove(shot)
+
 
 def update_ovni(screen, sprite, ovni_list, shot_list, x_nave, y_nave):
     vec = pygame.math.Vector2
@@ -42,7 +45,7 @@ def update_ovni(screen, sprite, ovni_list, shot_list, x_nave, y_nave):
 
             if(random() < 0.001):
                 begin = vec(ovni['vec_init'].x, ovni['vec_init'].y)
-                shot_list.append(make_shot(begin ,vec(x_nave, y_nave)))
+                shot_list.append(make_shot(begin, vec(x_nave, y_nave)))
 
         else:
             ovni_list.remove(ovni)

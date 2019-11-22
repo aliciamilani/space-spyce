@@ -6,10 +6,14 @@ pygame.init()
 
 
 def make_screen_game(screen):
-    x_nave = 30
+    global x_nave
+    global y_nave
+    x_nave = 800
     y_nave = 200
     ovni_sprite = pygame.image.load("content/nave_teste.png")
     shot_ovni_sprite = pygame.image.load("content/bullet.png")
+    shot_ovni_sprite = pygame.transform.rotate(shot_ovni_sprite, -180)
+
     x_bg = 0
     x_bg_2 = 0
     # shot_ovni_sprite = pygame.transform.rotate(shot_ovni_sprite, -180)
@@ -27,16 +31,22 @@ def make_screen_game(screen):
     game = True
 
     while game:
-        x_bg, x_bg_2 = support.bg_parallax(screen, bg, x_bg, x_bg_2,1994,2, -300)
+        x_nave, y_nave = support.check_pos_nave(x_nave, y_nave)
+
+        x_bg, x_bg_2 = support.bg_parallax(screen, bg, x_bg,
+                                           x_bg_2, 1994, 2, -300)
         support.draw_nave(screen, x_nave, y_nave)
 
         if(random.random() < spawn_chance):
             ovnis.append(enemy_2.make_ovni(1))
-        enemy_2.update_ovni(screen, ovni_sprite, ovnis, ovnis_shot, x_nave, y_nave)
+        enemy_2.update_ovni(screen, ovni_sprite, ovnis,
+                            ovnis_shot, x_nave, y_nave)
         enemy_2.updade_shot(screen, shot_ovni_sprite, ovnis_shot, 2)
 
-        damage_taken = support.colide_with_nave(x_nave, y_nave, 64, 64, ovnis_shot, 24, 24)
-        damage_taken += support.colide_with_nave(x_nave, y_nave, 64, 64, ovnis, 40, 40)
+        damage_taken = support.colide_with_nave(x_nave, y_nave,
+                                                64, 64, ovnis_shot, 24, 24)
+        damage_taken += support.colide_with_nave(x_nave, y_nave,
+                                                 64, 64, ovnis, 40, 40)
         support.colide_shot_shot(shoot, ovnis_shot, 24, 24)
         support.colide_shot_enemy(shoot, ovnis, 24, 24, 40, 40)
 
