@@ -46,3 +46,13 @@ def bg_parallax(screen, bg, x_bg, x_bg_2, bg_width, speed, y):
         x_bg = bg_width
     x_bg -= speed
     return x_bg, x_bg_2
+
+def colide_with_nave(x_nave, y_nave, width_nave, height_nave, list_object, width_object, height_object):
+    nave_rect = pygame.Rect(x_nave, y_nave, width_nave, height_nave)
+    cont_colides = 0
+    for thing in list_object:
+        object_rect = pygame.Rect(thing['vec_init'].x, thing['vec_init'].y, width_object, height_object)
+        if object_rect.colliderect(nave_rect):
+            cont_colides += 1
+            list_object.remove(thing)
+    return cont_colides
