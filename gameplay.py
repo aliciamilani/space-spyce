@@ -11,7 +11,7 @@ def make_screen_game(screen):
     x_nave = 50
     y_nave = 200
     ovni_sprite = pygame.image.load("content/nave_teste.png")
-    shot_ovni_sprite = pygame.image.load("content/bullet.png")
+    shot_ovni_sprite = pygame.image.load("content/circle.png")
     shot_ovni_sprite = pygame.transform.rotate(shot_ovni_sprite, -180)
 
     x_bg = 0
