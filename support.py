@@ -67,3 +67,14 @@ def colide_shot_shot(list_shots_nave, list_shots_ovni, width_shot, height_shot):
             if rect_shot_nave.colliderect(rect_shot_ovni):
                 list_shots_ovni.remove(shot_ovni)
                 list_shots_nave.remove(shot_nave)
+
+def colide_shot_enemy(list_shots_nave, list_enemys, width_shot, height_shot, width_enemy, height_enemy):
+    for shot_nave in list_shots_nave:
+        rect_shot_nave = pygame.Rect(shot_nave['vec_init'].x, shot_nave['vec_init'].y,
+                         width_shot, height_shot)
+        for enemy in list_enemys:
+            rect_enemy = pygame.Rect(enemy['vec_init'].x, enemy['vec_init'].y,
+                         width_enemy, height_enemy)
+            if rect_shot_nave.colliderect(rect_enemy):
+                list_shots_nave.remove(shot_nave)
+                list_enemys.remove(enemy)
