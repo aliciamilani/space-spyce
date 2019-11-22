@@ -36,6 +36,7 @@ def make_screen_game(screen):
         enemy_2.updade_shot(screen, shot_ovni_sprite, ovnis_shot, 2)
 
         damage_taken = support.colide_with_nave(x_nave, y_nave, 64, 64, ovnis_shot, 24, 24)
+        support.colide_shot_shot(shoot, ovnis_shot, 24, 24)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
