@@ -96,3 +96,36 @@ def colide_shot_enemy(list_shots_nave, list_enemys, width_shot, height_shot, wid
             if rect_shot_nave.colliderect(rect_enemy):
                 list_shots_nave.remove(shot_nave)
                 list_enemys.remove(enemy)
+
+def make_life_up(speed=3):
+    vec = pygame.math.Vector2
+    power_up_info = {}
+    power_up_info['vec_init'] = vec(1020, randint(10, 450))
+    power_up_info['vec_mov'] = vec((randint(0, 100)%speed),(randint(0, 100)%speed))
+    power_up_info['up'] = True
+    return power_up_info
+
+def power_colides_nave(power_width, power_height, x_power, y_power, nave_width, nave_heigth, x_nave, y_nave):
+    power_rect = pygame.Rect(x_power, y_power, power_width, power_height)
+    nave_rect = pygame.Rect(x_nave, y_nave, nave_width, nave_heigth)
+    if power_rect.colliderect(nave_rect):
+        return True
+    return False
+
+def update_life_up(screen, sprite, list_life_up, x_nave, y_nave):
+    vec = pygame.math.Vector2
+    for life in list_life_up:
+        if life['up']:
+            screen.blit(sprite, life['vec_init'])
+            life['vec_init'] -= life['vec_mov']
+            if power_colides_nave(24, 24, life['vec_init'].x, life['vec_init'].y, 64, 64, x_nave, y_nave):
+                list_life_up.remove(life)
+                return True
+            if life['vec_init'].x < -10:
+                life['up'] = False
+            if life['vec_init'].y < 0 or life['vec_init'].y > 500:
+                life['vec_mov'].y *= -1
+        else:
+            list_life_up.remove(life)
+            return False
+    return False
