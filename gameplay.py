@@ -8,7 +8,7 @@ pygame.init()
 def make_screen_game(screen):
     global x_nave
     global y_nave
-    x_nave = 800
+    x_nave = 50
     y_nave = 200
     ovni_sprite = pygame.image.load("content/nave_teste.png")
     shot_ovni_sprite = pygame.image.load("content/bullet.png")
