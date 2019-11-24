@@ -13,7 +13,8 @@ def make_screen_game(screen):
     ovni_sprite = pygame.image.load("content/nave_teste.png")
     shot_ovni_sprite = pygame.image.load("content/circle.png")
     power_up_sprite = pygame.image.load("content/star.png")
-
+    rock_sprite = pygame.image.load("content/pedra.png")
+    
     x_bg = 0
     x_bg_2 = 0
     life = 0
@@ -40,6 +41,8 @@ def make_screen_game(screen):
             ovnis.append(enemy_2.make_ovni(2))
         if(random.random() < spawn_chance_life):
             list_power_up.append(support.make_life_up(10))
+        if(random.random() < spawn_chance_rock):
+            rocks.append(enemy_2.make_rock(2))
 
         power_up = support.update_life_up(screen, power_up_sprite, list_power_up, x_nave, y_nave)
 
@@ -50,6 +53,7 @@ def make_screen_game(screen):
         enemy_2.update_ovni(screen, ovni_sprite, ovnis,
                             ovnis_shot, 0.001,x_nave, y_nave)
         enemy_2.updade_shot(screen, shot_ovni_sprite, ovnis_shot, 2)
+        enemy_2.update_rock(screen, rock_sprite, rocks, spawn_chance_rock)
 
         damage_taken = support.colide_with_nave(x_nave, y_nave,
                                                 64, 64, ovnis_shot, 24, 24)

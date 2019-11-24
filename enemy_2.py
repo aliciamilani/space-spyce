@@ -1,6 +1,13 @@
 import pygame
 from random import randint, choice, random
 
+def make_rock(speed=6):
+    vec = pygame.math.Vector2
+    rock_info = {}
+    rock_info['vec_init'] = vec(randint(1000, 1300), randint(0, 500))
+    rock_info['vec_mov'] = vec(randint(-speed*2,speed))
+    rock_info['up'] = True
+    return rock_info
 
 def make_ovni(speed=1):
     vec = pygame.math.Vector2
@@ -49,3 +56,4 @@ def update_ovni(screen, sprite, ovni_list, shot_list, shot_chance, x_nave, y_nav
 
         else:
             ovni_list.remove(ovni)
+
