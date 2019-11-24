@@ -27,6 +27,8 @@ def make_screen_game(screen):
     list_power_up = []
     spawn_chance_life = 0.001 # Chance de spawnar um power up
     shoot = []
+    rocks = []
+    spawn_chance_rock = 0.006
 
     game = True
 
