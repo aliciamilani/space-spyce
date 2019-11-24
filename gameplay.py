@@ -21,14 +21,14 @@ def make_screen_game(screen):
     background = "nebula.jpg"
     bg = pygame.image.load("content/{}".format(background))
 
+    list_power_up = []
     ovnis = []
     ovnis_shot = []
-    spawn_chance_et = 0.01  # Chance de spawnar um ET
-    list_power_up = []
-    spawn_chance_life = 0.001 # Chance de spawnar um power up
-    shoot = []
     rocks = []
-    spawn_chance_rock = 0.006
+    shoot = []
+    spawn_chance_et = 0.01  # Chance de spawnar um ET
+    spawn_chance_life = 0.001 # Chance de spawnar um power up
+    spawn_chance_rock = 0.004 # Chance de spawnar uma pedra
 
     game = True
 

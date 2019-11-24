@@ -62,7 +62,6 @@ def update_rock(screen, sprite, rock_list, spawn_chance_rock):
     for rock in rock_list:
         if rock['vec_init'].x < 10:
             rock['up'] = False
-
         if(rock['up']):
             rock['vec_init'] += rock['vec_mov']
             if(rock['vec_init'].y < 10 or rock['vec_init'].y > 450):
