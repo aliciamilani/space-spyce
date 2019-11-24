@@ -129,3 +129,12 @@ def update_life_up(screen, sprite, list_life_up, x_nave, y_nave):
             list_life_up.remove(life)
             return False
     return False
+
+def colide_rock_nave(screen, sprite_rock, rock_list, rock_width, rock_height, 
+                        x_nave, y_nave, nave_width, nave_height):
+    nave_rect = pygame.Rect(x_nave, y_nave, nave_width, nave_height)
+    for rock in rock_list:
+        rock_rect = pygame.Rect(rock['vec_init'].x, rock['vec_init'].y,
+                                  rock_width, rock_height)
+        if rock_rect.colliderect(nave_rect):
+            rock_list.remove(rock)
