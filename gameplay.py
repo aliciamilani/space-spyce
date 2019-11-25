@@ -63,6 +63,7 @@ def make_screen_game(screen):
                                                  64, 64, ovnis, 40, 40)
         support.colide_shot_shot(shoot, ovnis_shot, 24, 24)
         support.colide_shot_enemy(shoot, ovnis, 24, 24, 40, 40)
+        support.colide_shot_rock(shoot, rocks, 24, 24, 40, 40)
         support.colide_rock_nave(screen, rock_sprite, rocks, 70, 90, x_nave, y_nave, 64, 64)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

@@ -97,13 +97,27 @@ def colide_shot_enemy(list_shots_nave, list_enemys, width_shot, height_shot, wid
                 list_shots_nave.remove(shot_nave)
                 list_enemys.remove(enemy)
 
+
+def colide_shot_rock(list_shots_nave, list_rocks, width_shot, height_shot, width_rock, height_rock):
+    for shot_nave in list_shots_nave:
+        rect_shot_nave = pygame.Rect(shot_nave['vec_init'].x, shot_nave['vec_init'].y,
+                                     width_shot, height_shot)
+        for rock in list_rocks:
+            rect_rock = pygame.Rect(rock['vec_init'].x, rock['vec_init'].y,
+                                     width_rock, height_rock)
+            if rect_shot_nave.colliderect(rect_rock):
+                list_shots_nave.remove(shot_nave)
+                list_rocks.remove(rock)
+
+
 def make_life_up(speed=3):
     vec = pygame.math.Vector2
     power_up_info = {}
     power_up_info['vec_init'] = vec(1020, randint(10, 450))
-    power_up_info['vec_mov'] = vec((randint(0, 100)%speed),(randint(0, 100)%speed))
+    power_up_info['vec_mov'] = vec((randint(0, 100) % speed), (randint(0, 100) % speed))
     power_up_info['up'] = True
     return power_up_info
+
 
 def power_colides_nave(power_width, power_height, x_power, y_power, nave_width, nave_heigth, x_nave, y_nave):
     power_rect = pygame.Rect(x_power, y_power, power_width, power_height)
@@ -111,6 +125,7 @@ def power_colides_nave(power_width, power_height, x_power, y_power, nave_width, 
     if power_rect.colliderect(nave_rect):
         return True
     return False
+
 
 def update_life_up(screen, sprite, list_life_up, x_nave, y_nave):
     vec = pygame.math.Vector2
@@ -130,11 +145,12 @@ def update_life_up(screen, sprite, list_life_up, x_nave, y_nave):
             return False
     return False
 
-def colide_rock_nave(screen, sprite_rock, rock_list, rock_width, rock_height, 
-                        x_nave, y_nave, nave_width, nave_height):
+
+def colide_rock_nave(screen, sprite_rock, rock_list, rock_width, rock_height,
+                     x_nave, y_nave, nave_width, nave_height):
     nave_rect = pygame.Rect(x_nave, y_nave, nave_width, nave_height)
     for rock in rock_list:
         rock_rect = pygame.Rect(rock['vec_init'].x, rock['vec_init'].y,
-                                  rock_width, rock_height)
+                                rock_width, rock_height)
         if rock_rect.colliderect(nave_rect):
             rock_list.remove(rock)

@@ -1,13 +1,15 @@
 import pygame
 from random import randint, choice, random
 
+
 def make_rock(speed=2):
     vec = pygame.math.Vector2
     rock_info = {}
     rock_info['vec_init'] = vec(randint(1000, 1300), randint(0, 500))
-    rock_info['vec_mov'] = vec(randint(-speed*2,speed*2))
+    rock_info['vec_mov'] = vec(randint(-speed*2, speed*2))
     rock_info['up'] = True
     return rock_info
+
 
 def make_ovni(speed=1):
     vec = pygame.math.Vector2
@@ -41,7 +43,7 @@ def updade_shot(screen, sprite, shot_list, speed):
 def update_ovni(screen, sprite, ovni_list, shot_list, shot_chance, x_nave, y_nave):
     vec = pygame.math.Vector2
     for ovni in ovni_list:
-        if ovni['vec_init'].x < 10:
+        if ovni['vec_init'].x < -40:
             ovni['up'] = False
 
         if(ovni['up']):
@@ -57,13 +59,16 @@ def update_ovni(screen, sprite, ovni_list, shot_list, shot_chance, x_nave, y_nav
         else:
             ovni_list.remove(ovni)
 
+
 def update_rock(screen, sprite, rock_list, spawn_chance_rock):
     vec = pygame.math.Vector2
     for rock in rock_list:
-        if rock['vec_init'].x < 10:
+        if rock['vec_init'].x < -40:
             rock['up'] = False
         if(rock['up']):
             rock['vec_init'] += rock['vec_mov']
             if(rock['vec_init'].y < 10 or rock['vec_init'].y > 450):
                 rock['vec_mov'].y *= -1
             screen.blit(sprite, rock['vec_init'])
+        else:
+            rock_list.remove(rock)
