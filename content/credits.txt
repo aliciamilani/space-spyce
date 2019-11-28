@@ -8,5 +8,5 @@ Caio Andrade Mota
 José Jordan Giordando Alcântara
 
 Assets de terceiros:
-- Asset 1 - link de onde baixou o asset
+- Sprites e sons do jogo - https://opengameart.org/content/space-shooter-redux
 - Asset 2 - link de onde baixou o asset
