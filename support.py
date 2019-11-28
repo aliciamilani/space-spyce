@@ -27,7 +27,7 @@ def check_pos_nave(x_nave, y_nave):
 def make_shot(speed, x, y):
     vec = pygame.math.Vector2
     shot_info = {}
-    shot_info['vec_init'] = vec(x+85, y+33)
+    shot_info['vec_init'] = vec(x+85, y+40)
     shot_info['vec_mov'] = vec(speed, 0)
 
     shot_info['up'] = True
