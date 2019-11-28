@@ -134,7 +134,7 @@ def update_life_up(screen, sprite, list_life_up, x_nave, y_nave):
         if life['up']:
             screen.blit(sprite, life['vec_init'])
             life['vec_init'] -= life['vec_mov']
-            if power_colides_nave(24, 24, life['vec_init'].x, life['vec_init'].y, 64, 64, x_nave, y_nave):
+            if power_colides_nave(21, 22, life['vec_init'].x, life['vec_init'].y, 64, 64, x_nave, y_nave):
                 list_life_up.remove(life)
                 return True
             if life['vec_init'].x < -10:
