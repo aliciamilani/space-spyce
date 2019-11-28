@@ -4,8 +4,8 @@ pygame.init()
 
 
 def draw_nave(screen, x, y):
-    nave_sprite = pygame.image.load("content/nave.png")
-    nave_sprite = pygame.transform.rotate(nave_sprite, -45)
+    nave_sprite = pygame.image.load("content/new_sprites/player.png")
+    nave_sprite = pygame.transform.rotate(nave_sprite, -90)
     screen.blit(nave_sprite, (x, y))
     return nave_sprite
 
@@ -35,7 +35,8 @@ def make_shot(speed, x, y):
 
 
 def update_shot(screen, shoot_list):
-    shoot_sprite = pygame.image.load("content/bullet.png")
+    shoot_sprite = pygame.image.load("content/new_sprites/player_laser.png")
+    shoot_sprite = pygame.transform.rotate(shoot_sprite, 90)
     for shoot in shoot_list:
         if shoot['vec_init'].x > 1000:
             shoot['up'] = False

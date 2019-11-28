@@ -10,9 +10,10 @@ def make_screen_game(screen):
     global y_nave
     x_nave = 50
     y_nave = 200
-    ovni_sprite = pygame.image.load("content/nave_teste.png")
-    shot_ovni_sprite = pygame.image.load("content/circle.png")
-    power_up_sprite = pygame.image.load("content/star.png")
+    ovni_sprite = pygame.image.load("content/new_sprites/enemie.png")
+    ovni_sprite = pygame.transform.rotate(ovni_sprite, 270)
+    shot_ovni_sprite = pygame.image.load("content/new_sprites/enemie_laser.png")
+    power_up_sprite = pygame.image.load("content/new_sprites/pill_red.png")
     rock_sprite = pygame.image.load("content/pedra.png")
     
     x_bg = 0
