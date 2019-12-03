@@ -92,7 +92,7 @@ def make_gameover(screen, screen_width):
                 if event.key == pygame.K_DOWN:
                     selected += 1
                 if event.key == pygame.K_RETURN:
-                    return list_menu[selected]
+                    return selected%2
 
         selected %= 2
 
@@ -113,12 +113,17 @@ def make_gameover(screen, screen_width):
         menu_col = menu.get_rect()
         quit_col = quitt.get_rect()
 
+        title_col = title.get_rect()
+        disc_col = disc.get_rect()
+        start_col = menu.get_rect()
+        rank_col = quitt.get_rect()
+
         screen.blit(title, (screen_width/2 - (title_col[2]/2), 10))
         screen.blit(disc, (screen_width/2 - (disc_col[2]/2), 100))
         screen.blit(menu, (screen_width/2 - (start_col[2]/2), 200))
-        screen.blit(quitt, (screen_width/2 - (rank_col[2]/2), 250))
+        screen.blit(quitt, (screen_width/2 - (rank_col[2]/2), 300))
 
-        pygame.display.set_caption("TOMOU NA JABIRACAKKKKKKKKK")
+        pygame.display.set_caption("Menu")
 
         pygame.display.update()
         clock.tick(30)

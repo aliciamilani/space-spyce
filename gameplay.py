@@ -8,8 +8,10 @@ pygame.init()
 
 
 def make_screen_game(screen):
+    speed_init_para = 3
     global x_nave
     global y_nave
+    global init
     x_nave = 50
     y_nave = 200
 
@@ -40,13 +42,20 @@ def make_screen_game(screen):
     spawn_chance_life = 0.001 # Chance de spawnar um power up
     spawn_chance_rock = 0.004 # Chance de spawnar uma pedra
 
-    game = True
+    gameplay = True
+    y_nave_up = False
+    y_nave_down = False
+    x_nave_left = False
+    x_nave_right = False
 
-    while game:
+    while gameplay:
+
+        speed_para = score//500 + speed_init_para
         x_nave, y_nave = support.check_pos_nave(x_nave, y_nave)
 
         x_bg, x_bg_2 = support.bg_parallax(screen, bg, x_bg,
-                                           x_bg_2, 1994, 2, -300)
+                                           x_bg_2, 1994, speed_para, -300)
+        
         support.draw_nave(screen, x_nave, y_nave)
 
         if(random.random() < spawn_chance_et):
@@ -84,22 +93,47 @@ def make_screen_game(screen):
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
-                    y_nave -= 15
+                    y_nave_up = True
                 if event.key == pygame.K_DOWN:
-                    y_nave += 15
+                    y_nave_down = True
                 if event.key == pygame.K_LEFT:
-                    x_nave -= 15
+                    x_nave_left = True
                 if event.key == pygame.K_RIGHT:
-                    x_nave += 15
+                    x_nave_right = True
                 if event.key == pygame.K_SPACE:
                     shoot.append(support.make_shot(3, x_nave, y_nave))
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_UP:
+                    y_nave_up = False
+                if event.key == pygame.K_DOWN:
+                    y_nave_down = False
+                if event.key == pygame.K_LEFT:
+                    x_nave_left = False
+                if event.key == pygame.K_RIGHT:
+                    x_nave_right = False
+
+        if y_nave_up:
+            y_nave -= 2
+        if y_nave_down:
+            y_nave += 2
+        if x_nave_left:
+            x_nave -= 2
+        if x_nave_right:
+            x_nave += 2
         
         if life <= 0:
-            menu.make_gameover(screen, screen_width)
+            decision = menu.make_gameover(screen, 1000)
+            if decision:
+                pygame.quit()
+            else:
+                global game
+                gameplay = False
+                init = True
+                game = False
 
         life -= damage_taken
         hud.show_hud(screen, life, score)
 
-        support.update_shot(screen, shoot)
+        support.update_shot(screen, shoot, 10)
         pygame.display.flip()
         pygame.display.update()

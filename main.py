@@ -38,6 +38,9 @@ while run:
     # gameplay
     if game:
         gameplay.make_screen_game(screen)
+        decision = "null"
+        ranking = game = cred = False
+        init = True
 
     # checagem dos eventos acima
     for event in pygame.event.get():

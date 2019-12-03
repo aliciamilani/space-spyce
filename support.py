@@ -35,7 +35,7 @@ def make_shot(speed, x, y):
     return shot_info
 
 
-def update_shot(screen, shoot_list):
+def update_shot(screen, shoot_list, speed):
     shoot_sprite = pygame.image.load("content/new_sprites/player_laser.png")
     shoot_sprite = pygame.transform.scale(shoot_sprite, (12,30))
 
@@ -45,7 +45,7 @@ def update_shot(screen, shoot_list):
             shoot['up'] = False
 
         if(shoot['up']):
-            shoot['vec_init'] += shoot['vec_mov']
+            shoot['vec_init'] += shoot['vec_mov']*speed
             screen.blit(shoot_sprite, shoot['vec_init'])
 
         else:
