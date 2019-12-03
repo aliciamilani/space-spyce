@@ -2,6 +2,8 @@ import pygame
 import random
 import support
 import enemy_2
+import hud
+import menu
 pygame.init()
 
 
@@ -10,15 +12,22 @@ def make_screen_game(screen):
     global y_nave
     x_nave = 50
     y_nave = 200
+
     ovni_sprite = pygame.image.load("content/new_sprites/enemie.png")
     ovni_sprite = pygame.transform.rotate(ovni_sprite, -90)
+    ovni_sprite = pygame.transform.scale(ovni_sprite, (60,80))
+
+
     shot_ovni_sprite = pygame.image.load("content/new_sprites/enemie_laser.png")
+    shot_ovni_sprite = pygame.transform.scale(shot_ovni_sprite, (20,20))
+
     power_up_sprite = pygame.image.load("content/new_sprites/pill_red.png")
     rock_sprite = pygame.image.load("content/pedra.png")
     
     x_bg = 0
     x_bg_2 = 0
-    life = 0
+    life = 3
+    score = 0
     background = "nebula.jpg"
     bg = pygame.image.load("content/{}".format(background))
 
@@ -51,7 +60,7 @@ def make_screen_game(screen):
 
         if power_up:
             life += 1
-            print(life)
+            life = min(life,4)
 
         enemy_2.update_ovni(screen, ovni_sprite, ovnis,
                             ovnis_shot, 0.001,x_nave, y_nave)
@@ -59,13 +68,17 @@ def make_screen_game(screen):
         enemy_2.update_rock(screen, rock_sprite, rocks, spawn_chance_rock)
 
         damage_taken = support.colide_with_nave(x_nave, y_nave,
-                                                75, 112, ovnis_shot, 24, 24)
+                                                60, 80, ovnis_shot, 20, 20)
+
         damage_taken += support.colide_with_nave(x_nave, y_nave,
-                                                 75, 112, ovnis, 40, 40)
-        support.colide_shot_shot(shoot, ovnis_shot, 13, 37)
-        support.colide_shot_enemy(shoot, ovnis, 13, 37, 84, 104)
-        support.colide_shot_rock(shoot, rocks, 13, 37, 40, 40)
-        support.colide_rock_nave(screen, rock_sprite, rocks, 70, 90, x_nave, y_nave, 75, 112)
+                                                 60, 80, ovnis, 60, 80)
+         
+        damage_taken += support.colide_rock_nave(screen, rock_sprite, rocks, 40, 40, x_nave, y_nave, 60, 80)
+        
+        support.colide_shot_shot(shoot, ovnis_shot, 12, 30, 20, 20)
+        score += support.colide_shot_enemy(shoot, ovnis, 12, 30, 60, 80)
+        score += support.colide_shot_rock(shoot, rocks, 12, 30, 40, 40)
+       
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -80,6 +93,12 @@ def make_screen_game(screen):
                     x_nave += 15
                 if event.key == pygame.K_SPACE:
                     shoot.append(support.make_shot(3, x_nave, y_nave))
+        
+        if life <= 0:
+            menu.make_gameover(screen, screen_width)
+
+        life -= damage_taken
+        hud.show_hud(screen, life, score)
 
         support.update_shot(screen, shoot)
         pygame.display.flip()

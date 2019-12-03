@@ -6,6 +6,7 @@ pygame.init()
 def draw_nave(screen, x, y):
     nave_sprite = pygame.image.load("content/new_sprites/player.png")
     nave_sprite = pygame.transform.rotate(nave_sprite, -90)
+    nave_sprite = pygame.transform.scale(nave_sprite, (60,80))
     screen.blit(nave_sprite, (x, y))
     return nave_sprite
 
@@ -36,6 +37,8 @@ def make_shot(speed, x, y):
 
 def update_shot(screen, shoot_list):
     shoot_sprite = pygame.image.load("content/new_sprites/player_laser.png")
+    shoot_sprite = pygame.transform.scale(shoot_sprite, (12,30))
+
     shoot_sprite = pygame.transform.rotate(shoot_sprite, 90)
     for shoot in shoot_list:
         if shoot['vec_init'].x > 1000:
@@ -75,19 +78,20 @@ def colide_with_nave(x_nave, y_nave, width_nave, height_nave,
     return cont_colides
 
 
-def colide_shot_shot(list_shots_nave, list_shots_ovni, width_shot, height_shot):
+def colide_shot_shot(list_shots_nave, list_shots_ovni, width_shot_1, height_shot_1, width_shot_2, height_shot_2):
     for shot_nave in list_shots_nave:
         rect_shot_nave = pygame.Rect(shot_nave['vec_init'].x, shot_nave['vec_init'].y,
-                                     width_shot, height_shot)
+                                     width_shot_1, height_shot_1)
         for shot_ovni in list_shots_ovni:
             rect_shot_ovni = pygame.Rect(shot_ovni['vec_init'].x, shot_ovni['vec_init'].y,
-                                         width_shot, height_shot)
+                                         width_shot_2, height_shot_2)
             if rect_shot_nave.colliderect(rect_shot_ovni):
                 list_shots_ovni.remove(shot_ovni)
                 list_shots_nave.remove(shot_nave)
 
 
 def colide_shot_enemy(list_shots_nave, list_enemys, width_shot, height_shot, width_enemy, height_enemy):
+    score = 0
     for shot_nave in list_shots_nave:
         rect_shot_nave = pygame.Rect(shot_nave['vec_init'].x, shot_nave['vec_init'].y,
                                      width_shot, height_shot)
@@ -97,9 +101,12 @@ def colide_shot_enemy(list_shots_nave, list_enemys, width_shot, height_shot, wid
             if rect_shot_nave.colliderect(rect_enemy):
                 list_shots_nave.remove(shot_nave)
                 list_enemys.remove(enemy)
+                score += 50
+    return score
 
 
 def colide_shot_rock(list_shots_nave, list_rocks, width_shot, height_shot, width_rock, height_rock):
+    score = 0
     for shot_nave in list_shots_nave:
         rect_shot_nave = pygame.Rect(shot_nave['vec_init'].x, shot_nave['vec_init'].y,
                                      width_shot, height_shot)
@@ -109,6 +116,8 @@ def colide_shot_rock(list_shots_nave, list_rocks, width_shot, height_shot, width
             if rect_shot_nave.colliderect(rect_rock):
                 list_shots_nave.remove(shot_nave)
                 list_rocks.remove(rock)
+                score += 10
+    return score
 
 
 def make_life_up(speed=3):
@@ -150,8 +159,11 @@ def update_life_up(screen, sprite, list_life_up, x_nave, y_nave):
 def colide_rock_nave(screen, sprite_rock, rock_list, rock_width, rock_height,
                      x_nave, y_nave, nave_width, nave_height):
     nave_rect = pygame.Rect(x_nave, y_nave, nave_width, nave_height)
+    cont_colides_rock = 0
     for rock in rock_list:
         rock_rect = pygame.Rect(rock['vec_init'].x, rock['vec_init'].y,
                                 rock_width, rock_height)
         if rock_rect.colliderect(nave_rect):
             rock_list.remove(rock)
+            cont_colides_rock += 1
+    return cont_colides_rock
