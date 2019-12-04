@@ -30,13 +30,13 @@ npm install my-crazy-module --save
 | Spacebar          	| Atirar            	|
 
 ## Screenshots do jogo
+![Captura de tela de 2019-12-04 00-33-17](https://user-images.githubusercontent.com/54656065/70114114-bb4fd000-1631-11ea-8362-d0cf44b721b4.png)
 
-mete as foto AQUI KKKKK
+![Captura de tela de 2019-12-04 00-37-32](https://user-images.githubusercontent.com/54656065/70114166-e508f700-1631-11ea-90b9-b28659228416.png)
 
-```sh
-make install
-npm test
-```
+![Captura de tela de 2019-12-04 00-37-42](https://user-images.githubusercontent.com/54656065/70114194-f3efa980-1631-11ea-8498-d6fb6fbbff6d.png)
+
+
 ## Desenvolvedores
 - Anna Alicia Vasconcelos Milani [Github](https://github.com/aliciamilani)
 - Caio Andrade Mota [Github](https://github.com/caioandrademota)
