@@ -9,4 +9,4 @@ José Jordan Giordando Alcântara
 
 Assets de terceiros:
 - Sprites e sons do jogo - https://opengameart.org/content/space-shooter-redux
-- Asset 2 - link de onde baixou o asset
+
