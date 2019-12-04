@@ -38,9 +38,9 @@ make install
 npm test
 ```
 ## Desenvolvedores
-- Anna Alicia Vasconcelos Milani [Github] https://github.com/aliciamilani
-- Caio Andrade Mota [Github] https://github.com/caioandrademota
-- José Jordan Giordano Alcântara [Github] https://github.com/JordanJose
+- Anna Alicia Vasconcelos Milani [Github](https://github.com/aliciamilani)
+- Caio Andrade Mota [Github](https://github.com/caioandrademota)
+- José Jordan Giordano Alcântara [Github](https://github.com/JordanJose)
 
 ## Créditos
 UNIVERSIDADE DO ESTADO DO AMAZONAS - UEA  
@@ -53,6 +53,6 @@ Caio Andrade Mota
 José Jordan Giordano Alcântara   
 
 ## Assets de terceiros:
-- [Sprites e sons do jogo] https://opengameart.org/content/space-shooter-redux
+- [Sprites e sons do jogo](https://opengameart.org/content/space-shooter-redux)
 
 
