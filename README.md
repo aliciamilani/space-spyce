@@ -5,7 +5,7 @@ Jogo desenvolvido como forma de avaliação final para a matéria de Laboratóri
 SPACE S.pyCE foi desenvolvido por um trio de estudantes de Sistemas de Informação. É um jogo arcade com gráficos 2D, com uma 
 temática espacial, inspirado por Asteroids(1979) e Space Invaders(1978). O objetivo da gameplay é fazer o maior número de pontos possíveis, destruindo asteróides, alienígenas e coletando vidas.  
 
-![MENU](https://user-images.githubusercontent.com/38166881/70173567-7bc4ca80-16a9-11ea-8b61-34113f834396.png)
+![inicial](https://user-images.githubusercontent.com/38166881/70187436-9193b900-16c4-11ea-92e9-0d974e3642c2.png)
 
 Já disponível para download no Itch.io
 https://halfpanela.itch.io/space-spyce  
