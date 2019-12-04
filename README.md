@@ -1,15 +1,13 @@
 # FinalGame
 Jogo desenvolvido como forma de avaliação final para a matéria de Laboratório de Programação de Computadores utilizando Pygame.
 
-# Nome do jogo
-Nome do jogo foi desenvolvido por um trio de estudantes de Sistemas de Informação. É um jogo arcade com gráficos 2D, com uma 
+# SPACE S.pyCE
+SPACE S.pyCE foi desenvolvido por um trio de estudantes de Sistemas de Informação. É um jogo arcade com gráficos 2D, com uma 
 temática espacial, inspirado por Asteroids(1979) e Space Invaders(1978). O objetivo da gameplay é fazer o maior número de pontos
 possíveis, destruindo asteróides, alienígenas e coletando vidas.  
 
+![MENU](https://user-images.githubusercontent.com/38166881/70173567-7bc4ca80-16a9-11ea-8b61-34113f834396.png)
 
-inserir imagens da gameplay
-
-![](../header.png)
 
 ## Instalação e como rodar o jogo
 
@@ -30,11 +28,9 @@ npm install my-crazy-module --save
 | Spacebar          	| Atirar            	|
 
 ## Screenshots do jogo
-![Captura de tela de 2019-12-04 00-33-17](https://user-images.githubusercontent.com/54656065/70114114-bb4fd000-1631-11ea-8362-d0cf44b721b4.png)
-
-![Captura de tela de 2019-12-04 00-37-32](https://user-images.githubusercontent.com/54656065/70114166-e508f700-1631-11ea-90b9-b28659228416.png)
-
-![Captura de tela de 2019-12-04 00-37-42](https://user-images.githubusercontent.com/54656065/70114194-f3efa980-1631-11ea-8498-d6fb6fbbff6d.png)
+![gameplay1](https://user-images.githubusercontent.com/38166881/70173644-a747b500-16a9-11ea-95e1-358869468e0c.png)  
+![gameplay2](https://user-images.githubusercontent.com/38166881/70173670-b4fd3a80-16a9-11ea-9653-c038884229a0.png)  
+![GAMEOVEr](https://user-images.githubusercontent.com/38166881/70173707-c6464700-16a9-11ea-945e-7964c1483e8b.png)
 
 
 ## Desenvolvedores
@@ -53,6 +49,7 @@ Caio Andrade Mota
 José Jordan Giordano Alcântara   
 
 ## Assets de terceiros:
-- [Sprites e sons do jogo](https://opengameart.org/content/space-shooter-redux)
-
+- [Sprites(naves, tiro, power-up), fonte e sons do jogo](https://opengameart.org/content/space-shooter-redux)
+- [Background da gameplay](https://drive.google.com/file/d/1yVUPmvCsMWjcLFMMM12fARdfIeytoU-x/view)
+- [Background dos menus(main menu e game over)](https://www.10wallpaper.com/pt/view/Blue_nebula_galaxy-Expanse_Space_HD_Wallpaper.html)
 

@@ -3,11 +3,11 @@ import menu
 import rank
 import credits
 import gameplay
-import box_text
 global screen_width
 global screen_height
 
 pygame.init()
+pygame.display.set_caption("SPACE S.pyCE")
 clock = pygame.time.Clock()
 screen_width = 1000
 screen_height = 500

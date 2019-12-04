@@ -14,7 +14,7 @@ def make_rock(speed=2):
 def make_ovni(speed=1):
     vec = pygame.math.Vector2
     ovni_info = {}
-    ovni_info['vec_init'] = vec(1020, randint(0, 500))
+    ovni_info['vec_init'] = vec(1020, randint(15, 450))
     ovni_info['vec_mov'] = vec(randint(-speed*2, -1), randint(-speed, speed))
     ovni_info['up'] = True
     return ovni_info
@@ -48,7 +48,7 @@ def update_ovni(screen, sprite, ovni_list, shot_list, shot_chance, x_nave, y_nav
 
         if(ovni['up']):
             ovni['vec_init'] += ovni['vec_mov']
-            if(ovni['vec_init'].y < 10 or ovni['vec_init'].y > 450):
+            if(ovni['vec_init'].y < 10 or ovni['vec_init'].y > 500):
                 ovni['vec_mov'].y *= -1
             screen.blit(sprite, ovni['vec_init'])
 

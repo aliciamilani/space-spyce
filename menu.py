@@ -3,7 +3,7 @@ from pygame.locals import *
 pygame.init()
 
 
-font = "content/kenvector_future_thin.ttf"
+font = 'content/Righteous-Regular.ttf'
 red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
@@ -36,9 +36,9 @@ def make_screen_menu(screen, screen_width):
 
         selected %= 4
 
-        bg = pygame.image.load('content/nebula.jpg')
+        bg = pygame.image.load('content/menu.jpg')
         screen.blit(bg, (0, 0))
-        title = format("JOGO SEM NOME", font, 90, red)
+        title = format("SPACE S.pyCE", font, 90, red)
         start = format("START", font, 75, white)
         rank = format("RANK", font, 75, white)
         credit = format("CREDITS", font, 75, white)
@@ -57,7 +57,9 @@ def make_screen_menu(screen, screen_width):
             quitt = format("EXIT", font, 75, red)
 
         disc = format("Use as setas para movimentar", font, 14, white)
+        pres = format("HALFPANELA PRESENTS", font, 14, white)
 
+        pres_col = pres.get_rect()
         disc_col = disc.get_rect()
         title_col = title.get_rect()
         start_col = start.get_rect()
@@ -65,14 +67,14 @@ def make_screen_menu(screen, screen_width):
         credits_col = credit.get_rect()
         quit_col = quitt.get_rect()
 
+        screen.blit(pres, (screen_width/2 - (title_col[2]/2), 5))
         screen.blit(title, (screen_width/2 - (title_col[2]/2), 10))
-        screen.blit(disc, (screen_width/2 - (disc_col[2]/2), 100))
+        screen.blit(disc, (screen_width/2 - (disc_col[2]/2), 120))
         screen.blit(start, (screen_width/2 - (start_col[2]/2), 200))
-        screen.blit(rank, (screen_width/2 - (rank_col[2]/2), 250))
-        screen.blit(credit, (screen_width/2 - (credits_col[2]/2), 300))
-        screen.blit(quitt, (screen_width/2 - (quit_col[2]/2), 350))
+        screen.blit(rank, (screen_width/2 - (rank_col[2]/2), 260))
+        screen.blit(credit, (screen_width/2 - (credits_col[2]/2), 320))
+        screen.blit(quitt, (screen_width/2 - (quit_col[2]/2), 380))
 
-        pygame.display.set_caption("MENU")
 
         pygame.display.update()
         clock.tick(30)
@@ -96,7 +98,7 @@ def make_gameover(screen, screen_width):
 
         selected %= 2
 
-        bg = pygame.image.load('content/nebula.jpg')
+        bg = pygame.image.load('content/menu.jpg')
         screen.blit(bg, (0, 0))
         title = format("GAME OVER", font, 90, red)
         menu = format("MENU", font, 75, white)
@@ -120,10 +122,9 @@ def make_gameover(screen, screen_width):
 
         screen.blit(title, (screen_width/2 - (title_col[2]/2), 10))
         screen.blit(disc, (screen_width/2 - (disc_col[2]/2), 100))
-        screen.blit(menu, (screen_width/2 - (start_col[2]/2), 200))
+        screen.blit(menu, (screen_width/2 - (start_col[2]/2), 220))
         screen.blit(quitt, (screen_width/2 - (rank_col[2]/2), 300))
 
-        pygame.display.set_caption("Menu")
 
         pygame.display.update()
         clock.tick(30)

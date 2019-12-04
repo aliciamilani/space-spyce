@@ -31,7 +31,7 @@ def make_screen_game(screen):
     x_bg_2 = 0
     life = 3
     score = 0
-    background = "nebula.jpg"
+    background = "space.jpg"
     bg = pygame.image.load("content/{}".format(background))
 
     list_power_up = []
@@ -55,7 +55,7 @@ def make_screen_game(screen):
         x_nave, y_nave = support.check_pos_nave(x_nave, y_nave)
 
         x_bg, x_bg_2 = support.bg_parallax(screen, bg, x_bg,
-                                           x_bg_2, 1994, speed_para, -300)
+                                           x_bg_2, 1280, speed_para, -100)
         
         support.draw_nave(screen, x_nave, y_nave)
 
@@ -73,7 +73,7 @@ def make_screen_game(screen):
             life = min(life,4)
 
         enemy_2.update_ovni(screen, ovni_sprite, ovnis,
-                            ovnis_shot, 0.001,x_nave, y_nave)
+                            ovnis_shot, 0.007,x_nave, y_nave)
         enemy_2.updade_shot(screen, shot_ovni_sprite, ovnis_shot, 12)
         enemy_2.update_rock(screen, rock_sprite, rocks, spawn_chance_rock)
 
