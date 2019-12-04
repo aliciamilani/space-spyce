@@ -36,18 +36,22 @@ mete as foto AQUI KKKKK
 make install
 npm test
 ```
+## Desenvolvedores
+- Anna Alicia Vasconcelos Milani [Github] https://github.com/aliciamilani
+- Caio Andrade Mota [Github] https://github.com/caioandrademota
+- José Jordan Giordano Alcântara [Github] https://github.com/JordanJose
 
 ## Créditos
-UNIVERSIDADE DO ESTADO DO AMAZONAS - UEA
-BACHARELADO EM SISTEMAS DE INFORMAÇÃO
-LABORATÓRIO DE PROGRAMAÇÃO DE COMPUTADORES
-PROF.DR. JUCIMAR JR
+UNIVERSIDADE DO ESTADO DO AMAZONAS - UEA\n
+BACHARELADO EM SISTEMAS DE INFORMAÇÃO\n
+LABORATÓRIO DE PROGRAMAÇÃO DE COMPUTADORES\n
+PROF.DR. JUCIMAR JR\n
 
-Anna Alicia Vasconcelos Milani [Github] https://github.com/aliciamilani
-Caio Andrade Mota [Github] https://github.com/caioandrademota
-José Jordan Giordando Alcântara [Github] https://github.com/JordanJose
+Anna Alicia Vasconcelos Milani\n 
+Caio Andrade Mota\n
+José Jordan Giordano Alcântara\n 
 
-Assets de terceiros:
--- [Sprites e sons do jogo] https://opengameart.org/content/space-shooter-redux
+## Assets de terceiros:
+- [Sprites e sons do jogo] https://opengameart.org/content/space-shooter-redux
 
 
