@@ -1,6 +1,12 @@
 import pygame
 from random import randint, choice, random
  
+sounds = dict()
+sounds['shot_player'] = pygame.mixer.Sound('content/sfx/laser_player.ogg')
+sounds['shot_enemie'] = pygame.mixer.Sound('content/sfx/laser_enemie.ogg')
+sounds['powerup'] = pygame.mixer.Sound('content/sfx/power_up.ogg')
+sounds['power_lost'] = pygame.mixer.Sound('content/sfx/life_lost.ogg')
+sounds['gameover'] = pygame.mixer.Sound('content/sfx/game_over.ogg')
 
 def make_rock(speed=2):
     vec = pygame.math.Vector2
@@ -54,8 +60,8 @@ def update_ovni(screen, sprite, ovni_list, shot_list, shot_chance, x_nave, y_nav
 
             if(random() < shot_chance):
                 begin = vec(ovni['vec_init'].x, ovni['vec_init'].y)
+                sounds['shot_enemie'].play()
                 shot_list.append(make_shot(begin, vec(x_nave, y_nave)))
-
         else:
             ovni_list.remove(ovni)
 

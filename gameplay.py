@@ -5,6 +5,14 @@ import enemy_2
 import hud
 import menu
 pygame.init()
+pygame.mixer.init()
+
+# importação dos efeitos sonoros
+sounds = dict()
+sounds['shot_player'] = pygame.mixer.Sound('content/sfx/laser_player.ogg')
+sounds['shot_enemie'] = pygame.mixer.Sound('content/sfx/laser_enemie.ogg')
+sounds['powerup'] = pygame.mixer.Sound('content/sfx/power_up.ogg')
+sounds['gameover'] = pygame.mixer.Sound('content/sfx/game_over.ogg')
 
 
 def make_screen_game(screen):
@@ -69,6 +77,7 @@ def make_screen_game(screen):
         power_up = support.update_life_up(screen, power_up_sprite, list_power_up, x_nave, y_nave)
 
         if power_up:
+            sounds['powerup'].play()
             life += 1
             life = min(life,4)
 
@@ -102,6 +111,7 @@ def make_screen_game(screen):
                 if event.key == pygame.K_RIGHT:
                     x_nave_right = True
                 if event.key == pygame.K_SPACE:
+                    sounds['shot_player'].play()
                     shoot.append(support.make_shot(3, x_nave, y_nave))
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_UP:
@@ -123,6 +133,7 @@ def make_screen_game(screen):
             x_nave += speed_nave
         
         if life <= 0:
+            sounds['gameover'].play()
             decision = menu.make_gameover(screen, 1000)
             if decision:
                 pygame.quit()

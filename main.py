@@ -1,6 +1,5 @@
 import pygame
 import menu
-import rank
 import credits
 import gameplay
 global screen_width
@@ -16,7 +15,6 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 # declaração de variaveis de controle
 run = True  # execução do jogo
 init = True  # tela inicial
-ranking = False
 cred = False
 game = False  # gameplay
 
@@ -26,10 +24,6 @@ while run:
     if init:
         decision = menu.make_screen_menu(screen, screen_width)
 
-    # tela de rank
-    if ranking:
-        rank.make_screen_rank(screen)
-
     # tela de creditos
     if cred:
         credits.make_screen_credits(screen)
@@ -38,7 +32,7 @@ while run:
     if game:
         gameplay.make_screen_game(screen)
         decision = "null"
-        ranking = game = cred = False
+        game = cred = False
         init = True
 
     # checagem dos eventos acima
@@ -48,19 +42,16 @@ while run:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_BACKSPACE:
                 decision = "null"
-                ranking = game = cred = False
+                game = cred = False
                 init = True
 
-    if decision == 'rank':
-        ranking = True
-        init = cred = game = False
 
-    elif decision == 'credits':
-        ranking = game = init = False
+    if decision == 'credits':
+        game = init = False
         cred = True
 
     elif decision == 'start':
-        ranking = init = cred = False
+        init = cred = False
         game = True
 
     elif decision == 'exit':

@@ -52,4 +52,5 @@ José Jordan Giordano Alcântara
 - [Sprites(naves, tiro, power-up), fonte e sons do jogo](https://opengameart.org/content/space-shooter-redux)
 - [Background da gameplay](https://drive.google.com/file/d/1yVUPmvCsMWjcLFMMM12fARdfIeytoU-x/view)
 - [Background dos menus(main menu e game over)](https://www.10wallpaper.com/pt/view/Blue_nebula_galaxy-Expanse_Space_HD_Wallpaper.html)
+- [Fonte utilizada no jogo](https://fonts.google.com/specimen/Righteous?selection.family=Righteous)
 

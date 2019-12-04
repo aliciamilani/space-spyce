@@ -10,7 +10,7 @@ def crediting(text_tam, text_font, cred_arq, text_color):
     list_texts = []
     arq = open(cred_arq, 'r')
     for line in arq:
-        list_texts.append(line)
+        list_texts.append(line.strip('\n'))
     arq.close()
 
     list_cred = []
@@ -25,17 +25,17 @@ def crediting(text_tam, text_font, cred_arq, text_color):
 
 def write_credits(screen, text_tam, text_font, cred_arq, text_color):
     list_texts = crediting(text_tam, text_font, cred_arq, text_color)
-    x_init = 300
+    x_init = 25
     y_init = 20
     for text in list_texts:
         screen.blit(text, (x_init, y_init))
         y_init += text.get_height() + 10
 
 
-def make_screen_credits(screen, text_font="ubuntumono", text_tam=20,
-                        background="nebula.jpg", text_color=(255, 255, 255),
+def make_screen_credits(screen, text_font="ubuntumono", text_tam=15,
+                        background = "space.jpg", text_color=(255, 255, 255),
                         cred_arq="content/credits.txt"):
     pygame.display.set_caption("Créditos")
     bg = pygame.image.load("content/{}".format(background))
-    screen.blit(bg, (0, 0))
+    screen.blit(bg, (-10, 0))
     write_credits(screen, text_tam, text_font, cred_arq, text_color)

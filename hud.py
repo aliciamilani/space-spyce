@@ -2,7 +2,7 @@ import pygame
 from random import choice
 pygame.init()
 
-font = "content/kenvector_future_thin.ttf"
+font = "content/Righteous-Regular.ttf"
 
 red = (255, 0, 0)
 green = (0, 255, 0)

@@ -18,7 +18,7 @@ def format(message, textFont, textSize, textColor):
 
 
 def make_screen_menu(screen, screen_width):
-    list_menu = ['start', 'rank', 'credits', 'exit']
+    list_menu = ['start', 'credits', 'exit']
     menu = True
     selected = 0
 
@@ -34,13 +34,12 @@ def make_screen_menu(screen, screen_width):
                 if event.key == pygame.K_RETURN:
                     return list_menu[selected]
 
-        selected %= 4
+        selected %= 3
 
         bg = pygame.image.load('content/menu.jpg')
         screen.blit(bg, (0, 0))
         title = format("SPACE S.pyCE", font, 90, red)
         start = format("START", font, 75, white)
-        rank = format("RANK", font, 75, white)
         credit = format("CREDITS", font, 75, white)
         quitt = format("EXIT", font, 75, white)
 
@@ -48,12 +47,9 @@ def make_screen_menu(screen, screen_width):
             start = format("START", font, 75, red)
 
         elif selected == 1:
-            rank = format("RANK", font, 75, red)
-
-        elif selected == 2:
             credit = format("CREDITS", font, 75, red)
 
-        elif selected == 3:
+        elif selected == 2:
             quitt = format("EXIT", font, 75, red)
 
         disc = format("Use as setas para movimentar", font, 14, white)
@@ -63,7 +59,6 @@ def make_screen_menu(screen, screen_width):
         disc_col = disc.get_rect()
         title_col = title.get_rect()
         start_col = start.get_rect()
-        rank_col = rank.get_rect()
         credits_col = credit.get_rect()
         quit_col = quitt.get_rect()
 
@@ -71,9 +66,9 @@ def make_screen_menu(screen, screen_width):
         screen.blit(title, (screen_width/2 - (title_col[2]/2), 10))
         screen.blit(disc, (screen_width/2 - (disc_col[2]/2), 120))
         screen.blit(start, (screen_width/2 - (start_col[2]/2), 200))
-        screen.blit(rank, (screen_width/2 - (rank_col[2]/2), 260))
-        screen.blit(credit, (screen_width/2 - (credits_col[2]/2), 320))
-        screen.blit(quitt, (screen_width/2 - (quit_col[2]/2), 380))
+
+        screen.blit(credit, (screen_width/2 - (credits_col[2]/2), 260))
+        screen.blit(quitt, (screen_width/2 - (quit_col[2]/2), 320))
 
 
         pygame.display.update()
