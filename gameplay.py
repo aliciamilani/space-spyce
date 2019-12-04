@@ -14,6 +14,7 @@ def make_screen_game(screen):
     global init
     x_nave = 50
     y_nave = 200
+    speed_nave = 5
 
     ovni_sprite = pygame.image.load("content/new_sprites/enemie.png")
     ovni_sprite = pygame.transform.rotate(ovni_sprite, -90)
@@ -59,7 +60,7 @@ def make_screen_game(screen):
         support.draw_nave(screen, x_nave, y_nave)
 
         if(random.random() < spawn_chance_et):
-            ovnis.append(enemy_2.make_ovni(2))
+            ovnis.append(enemy_2.make_ovni(5))
         if(random.random() < spawn_chance_life):
             list_power_up.append(support.make_life_up(10))
         if(random.random() < spawn_chance_rock):
@@ -73,7 +74,7 @@ def make_screen_game(screen):
 
         enemy_2.update_ovni(screen, ovni_sprite, ovnis,
                             ovnis_shot, 0.001,x_nave, y_nave)
-        enemy_2.updade_shot(screen, shot_ovni_sprite, ovnis_shot, 2)
+        enemy_2.updade_shot(screen, shot_ovni_sprite, ovnis_shot, 12)
         enemy_2.update_rock(screen, rock_sprite, rocks, spawn_chance_rock)
 
         damage_taken = support.colide_with_nave(x_nave, y_nave,
@@ -113,13 +114,13 @@ def make_screen_game(screen):
                     x_nave_right = False
 
         if y_nave_up:
-            y_nave -= 2
+            y_nave -= speed_nave
         if y_nave_down:
-            y_nave += 2
+            y_nave += speed_nave
         if x_nave_left:
-            x_nave -= 2
+            x_nave -= speed_nave
         if x_nave_right:
-            x_nave += 2
+            x_nave += speed_nave
         
         if life <= 0:
             decision = menu.make_gameover(screen, 1000)

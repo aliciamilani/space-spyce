@@ -3,7 +3,7 @@ import menu
 import rank
 import credits
 import gameplay
-
+import box_text
 global screen_width
 global screen_height
 
@@ -19,7 +19,6 @@ init = True  # tela inicial
 ranking = False
 cred = False
 game = False  # gameplay
-
 
 while run:
 
