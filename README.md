@@ -40,9 +40,9 @@ BACHARELADO EM SISTEMAS DE INFORMAÇÃO
 LABORATÓRIO DE PROGRAMAÇÃO DE COMPUTADORES  
 PROF.DR. JUCIMAR JR  
   
-Anna Alicia Vasconcelos Milani   
-Caio Andrade Mota  
-José Jordan Giordano Alcântara   
+Anna Milani   
+Caio Mota  
+José Jordan Alcântara   
 
 ## Assets de terceiros:
 - [Sprites(naves, tiro, power-up), fonte e sons do jogo](https://opengameart.org/content/space-shooter-redux)
